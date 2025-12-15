@@ -6,6 +6,11 @@
     <title>Tatortreinigung & Entrümpelung 24 | Mainz, Frankfurt & Rhein-Main</title>
     <meta name="description" content="Zertifizierter Tatortreiniger & Entrümpelung. 24h Notdienst in Mainz, Wiesbaden, Frankfurt & Umgebung. Diskret, schnell & sauber. Jetzt anrufen!" />
     
+    <!-- Fix for "White Screen" on Netlify: Polyfill process.env for libraries that expect it -->
+    <script>
+      window.process = { env: { NODE_ENV: 'production' } };
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +67,8 @@
         "react-dom": "https://esm.sh/react-dom@18.2.0",
         "react-dom/": "https://esm.sh/react-dom@18.2.0/",
         "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
-        "framer-motion": "https://esm.sh/framer-motion@11.0.8?deps=react@18.2.0,react-dom@18.2.0"
+        "framer-motion": "https://esm.sh/framer-motion@11.0.8?deps=react@18.2.0,react-dom@18.2.0",
+        "lenis": "https://esm.sh/@studio-freight/lenis@1.0.42"
       }
     }
     </script>
@@ -87,6 +93,23 @@
       .no-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
+      }
+      
+      /* Lenis Smooth Scroll Styles */
+      html.lenis {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
       }
     </style>
   </head>
