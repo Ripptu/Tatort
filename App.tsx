@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/FeaturesGrid';
@@ -13,26 +13,9 @@ import Footer from './components/Footer';
 import WhatsAppBtn from './components/WhatsAppBtn';
 import { Impressum, Datenschutz, AGB } from './components/Legal';
 import { Phone } from 'lucide-react';
-import Lenis from 'lenis';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<'home' | 'impressum' | 'datenschutz' | 'agb'>('home');
-
-  useEffect(() => {
-     const lenis = new Lenis({
-        duration: 1.2, // Dauer des Scrolls (höher = langsamer/weicher)
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Die Brems-Kurve
-        smoothWheel: true, // Aktiviert es für das Mausrad
-        touchMultiplier: 2, // Empfindlichkeit auf Touch-Geräten
-     });
-     
-     const raf = (time: number) => {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-     };
-     requestAnimationFrame(raf);
-     return () => lenis.destroy();
-  }, []);
 
   const renderContent = () => {
     switch (currentView) {
