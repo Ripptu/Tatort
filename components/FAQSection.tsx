@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ChevronDown, Shield, HelpCircle, FileCheck, Banknote } from 'lucide-react';
+import { ChevronDown, Shield, HelpCircle, FileCheck, Banknote, Sparkles } from 'lucide-react';
 
 type AccordionItemProps = {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
   isOpen: boolean;
   onClick: () => void;
 };
@@ -22,9 +22,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
         />
       </button>
       <div 
-        className={`px-6 text-slate-600 leading-relaxed overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+        className={`px-6 text-slate-600 leading-relaxed overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[500px] pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <div className="pt-2 border-t border-slate-50">
+        <div className="pt-2 border-t border-slate-50 text-sm md:text-base">
            {answer}
         </div>
       </div>
@@ -34,77 +34,150 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
 
 const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [activeTab, setActiveTab] = useState<'insurance' | 'faq'>('insurance');
+  const [activeTab, setActiveTab] = useState<'costs' | 'services'>('costs');
 
-  const insuranceData = [
+  const costData = [
     {
-      q: "Wer übernimmt die Kosten einer Tatortreinigung?",
-      a: "Die Kostenübernahme hängt vom Einzelfall ab. In vielen Fällen greifen Gebäudeversicherungen (bei Schäden an der Substanz), Hausratversicherungen (für Inventar) oder das Opferentschädigungsgesetz (bei Gewalttaten). Ist ein Nachlass vorhanden, können die Kosten daraus beglichen werden. Wir unterstützen Sie bei der Antragstellung und Kommunikation mit den Versicherern."
+      q: "Wie setzen sich die Kosten bei Tatort- und Leichenfundortreinigungen zusammen?",
+      a: (
+        <>
+          <p className="mb-2">Die Kosten richten sich nach dem Reinigungsgrad und dem tatsächlichen Aufwand, nicht pauschal nach der Wohnfläche.</p>
+          <p className="mb-2 font-semibold">Entscheidend sind unter anderem:</p>
+          <ul className="list-disc pl-5 space-y-1 mb-2">
+            <li>Art und Umfang der Verunreinigung</li>
+            <li>betroffene Bereiche (Reinigungszonen)</li>
+            <li>erforderliche Schutz-, Desinfektions- und Spezialmaßnahmen</li>
+          </ul>
+          <p>Jeder Einsatz wird individuell eingeschätzt.</p>
+        </>
+      )
     },
     {
-      q: "Zahlt die Gebäudeversicherung?",
-      a: "Ja, die Gebäudeversicherung kommt oft für Schäden auf, die fest mit dem Gebäude verbunden sind (Böden, Estrich, Wände), insbesondere wenn durch Leichenfund (lange Liegezeit) Flüssigkeiten in die Bausubstanz eingedrungen sind."
+      q: "Was bedeutet Reinigung nach Zonen?",
+      a: (
+        <>
+          <p className="mb-2">Bei Tatort-, Leichenfundort- und Spezialreinigungen werden die betroffenen Bereiche in Reinigungszonen eingeteilt. Je nach Zone unterscheiden sich Arbeitsaufwand, Hygienemaßnahmen und Reinigungsverfahren.</p>
+          <p className="font-semibold mb-1">So stellen wir sicher, dass:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>alle belasteten Bereiche fachgerecht gereinigt werden</li>
+            <li>die Kosten transparent kalkuliert bleiben</li>
+          </ul>
+        </>
+      )
     },
     {
-      q: "Greift die Hausratversicherung?",
-      a: "Die Hausratversicherung ist oft zuständig für die Reinigung oder Entsorgung von beweglichem Inventar (Möbel, Teppiche), das durch den Vorfall kontaminiert wurde."
+      q: "Gibt es einen Pauschalpreis?",
+      a: (
+        <>
+          <p className="mb-2"><strong>Ja.</strong> Nach einer Einschätzung vor Ort oder anhand der vorhandenen Informationen bieten wir Ihnen einen verbindlichen Pauschalpreis an.</p>
+          <p>Dieser umfasst alle vereinbarten Leistungen – ohne versteckte Zusatzkosten.</p>
+        </>
+      )
     },
     {
-      q: "Was, wenn das Erbe ausgeschlagen wird?",
-      a: "Wenn das Erbe ausgeschlagen wird und keine Versicherung greift, übernimmt in manchen Fällen das Ordnungsamt oder das Gesundheitsamt die Kosten zur Gefahrenabwehr (Seuchenschutz). Wir beraten Sie hierzu gerne."
+      q: "Wer trägt die Kosten für die Reinigung?",
+      a: (
+        <>
+          <p className="mb-2">In den meisten Fällen werden die Kosten vom Auftraggeber getragen.</p>
+          <p className="mb-2">In bestimmten Situationen kann eine Beteiligung einer Versicherung möglich sein, abhängig vom jeweiligen Einzelfall.</p>
+          <p>Gerne klären wir dies transparent im persönlichen Gespräch.</p>
+        </>
+      )
+    },
+    {
+      q: "Entstehen zusätzliche Kosten während der Arbeiten?",
+      a: (
+        <>
+          <p className="mb-2"><strong>Nein.</strong></p>
+          <p>Nach Vereinbarung eines Pauschalpreises entstehen keine zusätzlichen Kosten, sofern sich der Arbeitsumfang nicht ändert.</p>
+        </>
+      )
     }
   ];
 
-  const generalData = [
+  const serviceData = [
     {
-      q: "Wie schnell können Sie vor Ort sein?",
-      a: "Als 24h-Notdienst sind wir im Rhein-Main-Gebiet in der Regel innerhalb von 60-90 Minuten am Einsatzort. Unser Team ist rund um die Uhr, auch an Wochenenden und Feiertagen, einsatzbereit."
+      q: "Welche Leistungen bieten Sie an?",
+      a: (
+        <>
+          <p className="mb-2 font-semibold">Wir sind spezialisiert auf:</p>
+          <ul className="list-disc pl-5 space-y-1 mb-4">
+            <li>Tatortreinigung</li>
+            <li>Leichenfundortreinigung</li>
+            <li>Spezial- und Extremreinigungen</li>
+          </ul>
+          <p className="mb-2 font-semibold">Zusätzlich bieten wir:</p>
+          <ul className="list-disc pl-5 space-y-1 mb-2">
+            <li>Grundreinigungen</li>
+            <li>Unterhaltsreinigungen</li>
+          </ul>
+          <p>an – sowohl im privaten als auch im gewerblichen Bereich.</p>
+        </>
+      )
     },
     {
-      q: "Wie lange darf ich die Wohnung nicht betreten?",
-      a: "Das Betreten ist in der Regel unmittelbar nach Abschluss unserer Arbeiten und der anschließenden Ozon-Behandlung (zur Geruchsneutralisation) wieder sicher möglich. Meistens ist dies nach 24 Stunden der Fall. Wir geben Ihnen eine genaue Freigabe."
+      q: "Wie läuft eine Tatort- oder Leichenfundortreinigung ab?",
+      a: (
+        <>
+          <p className="mb-2">Nach der Kontaktaufnahme besprechen wir den Sachverhalt, schätzen den Aufwand ein und vereinbaren den Ablauf.</p>
+          <p className="mb-2">Die Reinigung erfolgt diskret, gründlich und nach höchsten Hygienestandards.</p>
+          <p>Nach Abschluss sind die Räume wieder sicher und nutzbar.</p>
+        </>
+      )
     },
     {
-      q: "Werden persönliche Dokumente gerettet?",
-      a: "Ja, das ist ein wichtiger Teil unserer Arbeit. Wir filtern gezielt nach Testamenten, wichtigen Unterlagen, Bargeld und persönlichen Erinnerungsstücken und übergeben diese gereinigt an die Angehörigen."
+      q: "Bieten Sie auch Grund- und Unterhaltsreinigung an?",
+      a: (
+        <>
+          <p className="mb-2"><strong>Ja.</strong> Neben Spezial- und Extremreinigungen führen wir auch:</p>
+          <ul className="list-disc pl-5 space-y-1 mb-2">
+            <li>Grundreinigungen (z. B. nach Renovierungen oder bei starker Verschmutzung)</li>
+            <li>Unterhaltsreinigungen (regelmäßige Reinigung von Objekten)</li>
+          </ul>
+          <p>fachgerecht und zuverlässig durch.</p>
+        </>
+      )
     },
     {
-      q: "Können Sie den Leichengeruch vollständig entfernen?",
-      a: "Ja. Durch professionelle Reinigungsmittel und den Einsatz von industriellen Ozongeneratoren oder Verneblern neutralisieren wir organische Gerüche dauerhaft, anstatt sie nur zu überdecken."
+      q: "Wie schnell sind Sie einsatzbereit?",
+      a: (
+        <>
+          <p className="mb-2">Wir bieten einen <strong>24-Stunden-Notdienst</strong>.</p>
+          <p>In dringenden Fällen sind wir kurzfristig einsatzbereit – auch an Wochenenden und Feiertagen.</p>
+        </>
+      )
     }
   ];
 
-  const data = activeTab === 'insurance' ? insuranceData : generalData;
+  const data = activeTab === 'costs' ? costData : serviceData;
 
   return (
     <section id="faq" className="py-24 bg-slate-50 relative">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
         <div className="text-center mb-12">
-           <span className="text-brand-accent font-bold tracking-widest uppercase text-xs mb-3 block">Ratgeber & Hilfe</span>
-           <h2 className="text-3xl md:text-5xl font-heading font-bold text-brand-dark mb-6">
-              Häufige Fragen &<br/>Kostenübernahme
+           <span className="text-brand-accent font-bold tracking-widest uppercase text-xs mb-3 block">Transparenz & Information</span>
+           <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-dark mb-6 leading-tight">
+              Häufige Fragen & Kosten<br/>
+              <span className="text-slate-500 text-2xl md:text-3xl">Tatort-, Leichenfundort- & Spezialreinigung</span>
            </h2>
-           <p className="text-slate-600 text-lg font-light max-w-xl mx-auto">
-              Wir wissen, dass jetzt viele Fragen offen sind. Hier finden Sie Antworten zu Versicherungen und Ablauf.
-           </p>
         </div>
 
         {/* Custom Tabs */}
         <div className="flex justify-center gap-4 mb-10">
           <button 
-             onClick={() => { setActiveTab('insurance'); setOpenIndex(0); }}
-             className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 border ${activeTab === 'insurance' ? 'bg-brand-dark text-white border-brand-dark shadow-lg' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
+             onClick={() => { setActiveTab('costs'); setOpenIndex(0); }}
+             className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 border ${activeTab === 'costs' ? 'bg-brand-dark text-white border-brand-dark shadow-lg' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
           >
-             <Banknote size={18} className={activeTab === 'insurance' ? 'text-brand-accent' : ''} />
-             Versicherung & Kosten
+             <Banknote size={18} className={activeTab === 'costs' ? 'text-brand-accent' : ''} />
+             Kosten & Preise
           </button>
           <button 
-             onClick={() => { setActiveTab('faq'); setOpenIndex(0); }}
-             className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 border ${activeTab === 'faq' ? 'bg-brand-dark text-white border-brand-dark shadow-lg' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
+             onClick={() => { setActiveTab('services'); setOpenIndex(0); }}
+             className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 border ${activeTab === 'services' ? 'bg-brand-dark text-white border-brand-dark shadow-lg' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
           >
-             <HelpCircle size={18} className={activeTab === 'faq' ? 'text-brand-accent' : ''} />
-             Ablauf & Angehörige
+             <Sparkles size={18} className={activeTab === 'services' ? 'text-brand-accent' : ''} />
+             Leistungen & Ablauf
           </button>
         </div>
 
@@ -127,7 +200,7 @@ const FAQSection: React.FC = () => {
            </div>
            <div className="text-center sm:text-left">
               <h4 className="font-bold text-brand-dark mb-1">Kostenlose Erstberatung</h4>
-              <p className="text-slate-500 text-sm">Unsicher bezüglich der Versicherung? Rufen Sie uns an, wir helfen Ihnen bei der Einschätzung.</p>
+              <p className="text-slate-500 text-sm">Unsicher wegen der Kosten oder dem Ablauf? Rufen Sie uns an.</p>
            </div>
            <a href="tel:01772458195" className="ml-auto bg-brand-dark text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-800 transition-colors whitespace-nowrap">
               0177 2458195
