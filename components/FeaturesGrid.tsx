@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Biohazard, Trash2, SprayCan, Home, Sparkles, Skull, X, ArrowRight } from 'lucide-react';
+import { Biohazard, Trash2, SprayCan, Home, Sparkles, Skull, X, ArrowRight, Building2, CalendarRange, Brush } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ServiceType {
@@ -48,6 +48,24 @@ const Services: React.FC = () => {
       title: "Spezialreinigung",
       description: "Fäkalien & Animal Hoarding.",
       detailText: "Extreme Verschmutzungen erfordern Spezialwissen. Wir reinigen Fäkalien-verschmutzte Wohnungen (z.B. nach Rohrbruch oder bei Pflegefällen) und sanieren Wohnungen nach Animal Hoarding Fällen inklusive Desinfektion."
+    },
+    {
+      icon: Brush,
+      title: "Grundreinigung",
+      description: "Intensive Tiefenreinigung.",
+      detailText: "Gründliche Reinigung bis in den letzten Winkel. Ideal nach Renovierungen, Umzügen oder bei starker Verschmutzung. Wir entfernen hartnäckigen Schmutz, Pflegefilme und Rückstände, die bei der normalen Reinigung übersehen werden."
+    },
+    {
+      icon: CalendarRange,
+      title: "Unterhaltsreinigung",
+      description: "Regelmäßige Sauberkeit.",
+      detailText: "Laufende Reinigung in festgelegten Intervallen für Büros, Praxen und Privathaushalte. Wir sorgen für dauerhafte Hygiene, saubere Oberflächen und ein gepflegtes Ambiente – ganz nach Ihrem Zeitplan."
+    },
+    {
+      icon: Building2,
+      title: "Gebäudereinigung",
+      description: "Werterhalt Ihrer Immobilie.",
+      detailText: "Umfassender Service für Immobilienverwaltungen und Eigentümer. Von der Treppenhausreinigung über Glasreinigung bis zur Pflege der Gemeinschaftsflächen sorgen wir für einen optimalen Eindruck."
     },
   ];
 

@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                    <ShieldCheck size={20} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-heading font-bold text-lg text-white leading-tight">Tatortreinigung</span>
+                  <span className="font-heading font-bold text-lg text-white leading-tight">Tatortreinigung & Entrümpelung 24</span>
                   <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Mainz & Rhein-Main</span>
                 </div>
               </div>

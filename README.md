@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Tatortreinigung & Entrümpelung 24
 
-# Run and deploy your AI Studio app
+Zertifizierter Fachbetrieb für Tatortreinigung, Leichenfundortsanierung und Entrümpelung im Rhein-Main-Gebiet.
 
-This contains everything you need to run your app locally.
+## Über das Projekt
 
-View your app in AI Studio: https://ai.studio/apps/drive/1cYnOQAnnqyokGTUzghKChYURnDrXT8oE
+Dies ist eine moderne, responsive Landing Page für einen Dienstleister im Bereich Spezialreinigung. Die Seite wurde mit React, Tailwind CSS, Framer Motion und Lucide React erstellt.
 
-## Run Locally
+### Features
+- Responsive Design (Mobile First)
+- Interaktive Animationen
+- Kontaktformular
+- FAQ Bereich
+- Notruf-Button Integration
+- KI-Analyse Demo
 
-**Prerequisites:**  Node.js
+## Deployment
 
+Diese Anwendung ist bereit für das Deployment auf Plattformen wie Netlify, Vercel oder GitHub Pages.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Lokale Entwicklung
+
+```bash
+npm install
+npm run dev
+```
+
+### Build
+
+```bash
+npm run build
+```

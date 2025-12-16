@@ -74,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
             <div className="hidden sm:flex items-center gap-2 text-slate-400">
               <ShieldCheck size={10} className="text-brand-accent" />
-              <span>Zertifizierter Fachbetrieb im Rhein-Main-Gebiet</span>
+              <span>Zertifizierter Tatortreiniger - 24h Notdienst im Rhein-Main-Gebiet & Mannheim</span>
             </div>
             <div className="inline-flex items-center gap-2">
               <span className="relative flex h-1.5 w-1.5">
@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
               
               {/* Text Logo - Always visible, no image logo */}
               <div className={`text-left transition-opacity duration-300 ${scrolled && currentView !== 'home' ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}>
-                <div className="font-heading font-bold text-brand-dark leading-tight text-lg">Tatortreinigung 24</div>
+                <div className="font-heading font-bold text-brand-dark leading-tight text-lg md:text-xl">Tatortreinigung & Entrümpelung 24</div>
                 <div className="text-[10px] text-slate-500 tracking-wider uppercase font-medium">Mainz & Rhein-Main</div>
               </div>
             </button>
