@@ -17,6 +17,15 @@ const Hero: React.FC = () => {
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[800px] h-[800px] bg-slate-200/40 rounded-full blur-[120px] -z-10 opacity-60"></div>
       <div className="absolute bottom-0 left-0 -ml-20 w-[600px] h-[600px] bg-slate-100/50 rounded-full blur-[100px] -z-10"></div>
       
+      {/* Background Logo Watermark */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none -z-10 select-none flex justify-center items-center">
+        <img 
+            src="https://i.postimg.cc/qBtT23GJ/tat.png" 
+            alt="" 
+            className="w-[600px] md:w-[900px] max-w-none opacity-[0.08] object-contain brightness-0"
+        />
+      </div>
+
       <div className="flex flex-col items-center text-center">
         {/* Main Content */}
         <div className="max-w-4xl relative z-10">

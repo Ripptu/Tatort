@@ -21,7 +21,7 @@ const Services: React.FC = () => {
     },
     {
       icon: Skull,
-      title: "Leichenfundort",
+      title: "Leichenfundortreinigung",
       description: "Sanierung nach langer Liegezeit.",
       detailText: "Bei längeren Liegezeiten entstehen besondere Herausforderungen durch Verwesungsprozesse. Wir entfernen kontaminierte Bodenbeläge, Putz oder Möbel und führen eine professionelle Geruchsneutralisation durch. Schädlingsbekämpfung ist oft Teil dieses Prozesses."
     },

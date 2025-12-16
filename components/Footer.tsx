@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <h4 className="font-bold text-white mb-6 font-heading tracking-wide">Leistungen</h4>
               <ul className="space-y-2 text-sm">
                  <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Tatortreinigung</a></li>
-                 <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Leichenfundort</a></li>
+                 <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Leichenfundortreinigung</a></li>
                  <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Messie-Wohnungen</a></li>
                  <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Entrümpelung</a></li>
                  <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Ozonbehandlung</a></li>

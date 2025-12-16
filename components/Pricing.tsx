@@ -169,7 +169,7 @@ const Contact: React.FC = () => {
                        <select name="category" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-brand-dark focus:ring-1 focus:ring-brand-dark outline-none transition-all text-slate-700">
                           <option value="Allgemein">Bitte wählen...</option>
                           <option value="Tatortreinigung">Tatortreinigung</option>
-                          <option value="Leichenfundort">Leichenfundort</option>
+                          <option value="Leichenfundortreinigung">Leichenfundortreinigung</option>
                           <option value="Entrümpelung">Entrümpelung</option>
                           <option value="Sonstiges">Sonstiges</option>
                        </select>
