@@ -94,8 +94,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
           isVisible ? 'translate-y-0' : '-translate-y-full'
         } ${
           scrolled 
-            ? 'top-0 bg-white/95 backdrop-blur-md shadow-md py-1.5 border-b border-slate-200' 
-            : 'top-[24px] bg-white/0 py-2 border-transparent'
+            ? 'top-0 bg-white/95 backdrop-blur-md shadow-md py-2 border-b border-slate-200' 
+            : 'top-[24px] bg-white/0 py-4 border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,6 +103,14 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
             
             {/* Logo Area */}
             <button onClick={() => onNavigate('home')} className="flex items-center gap-3 group focus:outline-none">
+              
+              {/* Large Logo Image */}
+              <img 
+                 src="https://i.postimg.cc/Z5z4b5pJ/tat.png" 
+                 alt="Logo" 
+                 className={`h-14 md:h-20 w-auto object-contain brightness-0 mr-1 transition-all duration-300 ${scrolled && currentView !== 'home' ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}
+              />
+
               <div className="relative">
                  {/* Show Back Arrow only on sub-pages */}
                  {currentView !== 'home' && (
@@ -111,12 +119,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
                       <span className="text-sm font-bold">Zurück</span>
                    </div>
                  )}
-              </div>
-              
-              {/* Text Logo - Always visible, no image logo */}
-              <div className={`text-left transition-opacity duration-300 ${scrolled && currentView !== 'home' ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}>
-                <div className="font-heading font-bold text-brand-dark leading-tight text-lg md:text-xl">Tatortreinigung & Entrümpelung 24</div>
-                <div className="text-[10px] text-slate-500 tracking-wider uppercase font-medium">Mainz & Rhein-Main-Gebiet & Mannheim</div>
               </div>
             </button>
 

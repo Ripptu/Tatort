@@ -20,9 +20,9 @@ const Hero: React.FC = () => {
       {/* Background Logo Watermark */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none -z-10 select-none flex justify-center items-center">
         <img 
-            src="https://i.postimg.cc/qBtT23GJ/tat.png" 
+            src="https://i.postimg.cc/Z5z4b5pJ/tat.png" 
             alt="" 
-            className="w-[600px] md:w-[900px] max-w-none opacity-[0.08] object-contain brightness-0"
+            className="w-[600px] md:w-[900px] max-w-none opacity-20 object-contain brightness-0"
         />
       </div>
 
