@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-heading font-bold text-lg text-white leading-tight">Tatortreinigung & Entrümpelung 24</span>
-                  <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Mainz & Rhein-Main</span>
+                  <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Mainz & Rhein-Main-Gebiet & Mannheim</span>
                 </div>
               </div>
               <p className="text-sm text-slate-500 leading-relaxed mb-6">
@@ -39,14 +39,19 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
            </div>
            
-           {/* Quick Links */}
+           {/* Quick Links - Full Service List */}
            <div>
               <h4 className="font-bold text-white mb-6 font-heading tracking-wide">Leistungen</h4>
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-2 text-sm">
                  <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Tatortreinigung</a></li>
                  <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Leichenfundort</a></li>
+                 <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Messie-Wohnungen</a></li>
                  <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Entrümpelung</a></li>
                  <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Ozonbehandlung</a></li>
+                 <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Spezialreinigung</a></li>
+                 <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Grundreinigung</a></li>
+                 <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Unterhaltsreinigung</a></li>
+                 <li><a href="#services" className="hover:text-brand-accent transition-colors flex items-center gap-2 group"><span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-brand-accent"></span> Gebäudereinigung</a></li>
               </ul>
            </div>
 

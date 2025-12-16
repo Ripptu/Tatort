@@ -116,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
               {/* Text Logo - Always visible, no image logo */}
               <div className={`text-left transition-opacity duration-300 ${scrolled && currentView !== 'home' ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}>
                 <div className="font-heading font-bold text-brand-dark leading-tight text-lg md:text-xl">Tatortreinigung & Entrümpelung 24</div>
-                <div className="text-[10px] text-slate-500 tracking-wider uppercase font-medium">Mainz & Rhein-Main</div>
+                <div className="text-[10px] text-slate-500 tracking-wider uppercase font-medium">Mainz & Rhein-Main-Gebiet & Mannheim</div>
               </div>
             </button>
 

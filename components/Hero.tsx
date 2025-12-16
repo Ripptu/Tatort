@@ -25,9 +25,9 @@ const Hero: React.FC = () => {
             Zertifizierter Fachbetrieb
           </div>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-brand-dark leading-[1.15] mb-8">
-            <span className="gradient-text">Tatortreinigung</span> &<br/>
-            Spezialreinigung
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-brand-dark leading-tight mb-8">
+            <span className="gradient-text">Zertifizierter Tatortreiniger</span><br/>
+            <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-700">- 24h Notdienst im Rhein-Main-Gebiet & Mannheim</span>
           </h1>
           
           <div className="flex items-center justify-center gap-4 mb-8">
