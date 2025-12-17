@@ -1,17 +1,83 @@
 import React, { useState } from 'react';
-import { FileText, Download, Check, Printer } from 'lucide-react';
+import { FileText, Download, Check, Printer, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+// @ts-ignore
+import { jsPDF } from 'https://esm.sh/jspdf@2.5.1';
 
 const Checklist: React.FC = () => {
   const [downloading, setDownloading] = useState(false);
 
-  const handleDownload = () => {
+  const generatePDF = () => {
     setDownloading(true);
-    // Simulate download delay
+    
     setTimeout(() => {
+      const doc = new jsPDF();
+      
+      // Header / Logo area
+      doc.setFillColor(15, 23, 42); // slate-900
+      doc.rect(0, 0, 210, 40, 'F');
+      
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(22);
+      doc.setFont("helvetica", "bold");
+      doc.text("Tatortreinigung & Entrümpelung 24", 20, 20);
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text("Ihr zertifizierter Fachbetrieb im Rhein-Main-Gebiet", 20, 30);
+
+      // Title
+      doc.setTextColor(15, 23, 42);
+      doc.setFontSize(18);
+      doc.setFont("helvetica", "bold");
+      doc.text("Ratgeber: Die ersten 48 Stunden", 20, 60);
+      
+      doc.setFontSize(11);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(70, 70, 70);
+      const intro = "Dieser Leitfaden unterstüzt Sie in den ersten Tagen nach einem Trauerfall, damit Sie in dieser schwierigen Zeit den Überblick behalten.";
+      doc.text(doc.splitTextToSize(intro, 170), 20, 70);
+
+      // Checklist Items
+      let yPos = 90;
+      const items = [
+        { title: "Sofortmaßnahmen (0-24 Std)", points: ["Hausarzt oder Notarzt verständigen (Totenschein)", "Bestatter kontaktieren (Überführung)", "Engste Angehörige informieren"] },
+        { title: "Behördengänge & Dokumente", points: ["Sterbeurkunde beim Standesamt beantragen", "Testament beim Nachlassgericht abgeben", "Erbschein beantragen (falls nötig)"] },
+        { title: "Wohnung & Verträge", points: ["Mietvertrag prüfen & ggf. kündigen", "Strom, Gas, Wasser ablesen & Anbieter informieren", "Telefon, Internet & Abos kündigen", "Post-Nachsendeauftrag einrichten"] },
+        { title: "Versicherungen", points: ["Lebensversicherung informieren (meist 24-72h Frist!)", "Unfallversicherung melden", "Krankenkasse & Rentenversicherung informieren"] },
+        { title: "Reinigung & Auflösung", points: ["Objektbegehung durchführen", "Wertsachen sichern", "Professionelle Reinigung/Entrümpelung beauftragen"] }
+      ];
+
+      items.forEach((section) => {
+        // Section Title
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(15, 23, 42);
+        doc.setFontSize(12);
+        doc.text(section.title, 20, yPos);
+        yPos += 7;
+
+        // Points
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(11);
+        
+        section.points.forEach(point => {
+          doc.rect(20, yPos - 3, 3, 3); // Checkbox
+          doc.text(point, 28, yPos);
+          yPos += 7;
+        });
+        
+        yPos += 5; // Spacing between sections
+      });
+
+      // Footer
+      const footerY = 280;
+      doc.setFontSize(9);
+      doc.setTextColor(100, 100, 100);
+      doc.text("Tatortreinigung & Entrümpelung 24 | Tel: 0177 2458195 | info@tatortreinigung-entruempelung24.de", 105, footerY, { align: "center" });
+
+      doc.save("Ratgeber_Checkliste_T24.pdf");
       setDownloading(false);
-      alert("Der Download der Checkliste würde hier starten. (Demo-Modus)");
-    }, 2000);
+    }, 1000);
   };
 
   return (
@@ -87,12 +153,15 @@ const Checklist: React.FC = () => {
 
                <div className="space-y-4">
                   <button 
-                     onClick={handleDownload}
+                     onClick={generatePDF}
                      disabled={downloading}
                      className="w-full bg-brand-dark text-white font-bold text-lg py-4 rounded-xl shadow-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-3 disabled:opacity-70"
                   >
                      {downloading ? (
-                        <>Lade herunter...</>
+                        <>
+                           <Loader2 size={20} className="animate-spin" />
+                           PDF wird erstellt...
+                        </>
                      ) : (
                         <>
                            <Download size={20} />

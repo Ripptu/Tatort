@@ -170,7 +170,10 @@ const Contact: React.FC = () => {
                           <option value="Allgemein">Bitte wählen...</option>
                           <option value="Tatortreinigung">Tatortreinigung</option>
                           <option value="Leichenfundortreinigung">Leichenfundortreinigung</option>
+                          <option value="Messie-Entrümpelung">Messie-Entrümpelung</option>
                           <option value="Entrümpelung">Entrümpelung</option>
+                          <option value="Grundreinigung">Grundreinigung</option>
+                          <option value="Unterhaltsreinigung">Unterhaltsreinigung</option>
                           <option value="Sonstiges">Sonstiges</option>
                        </select>
                     </div>
