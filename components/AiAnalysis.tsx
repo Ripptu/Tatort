@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { Camera, Upload, CheckCircle2, AlertTriangle, Smartphone, ScanLine, Loader2, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const AiAnalysis: React.FC = () => {
-  const [file, setFile] = useState<File | null>(null);
+  const [, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [status, setStatus] = useState<'idle' | 'scanning' | 'complete'>('idle');
   const fileInputRef = useRef<HTMLInputElement>(null);

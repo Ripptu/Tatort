@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 
-// Updated from Reviews to Service Areas based on user request
+// Converted from Reviews to Service Areas List
 const locations = [
   "Mainz",
   "Wiesbaden",
@@ -22,7 +22,7 @@ const locations = [
   "Heidelberg"
 ];
 
-const Reviews = () => {
+const Reviews: React.FC = () => {
   return (
     <section className="bg-slate-50 py-24 relative overflow-hidden">
       <div className="container z-10 mx-auto px-6">

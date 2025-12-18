@@ -6,17 +6,12 @@
     <title>Zertifizierter Tatortreiniger - 24h Notdienst im Rhein-Main-Gebiet & Mannheim</title>
     <meta name="description" content="Zertifizierter Tatortreiniger & Entrümpelung. 24h Notdienst in Mainz, Wiesbaden, Frankfurt & Umgebung. Diskret, schnell & sauber. Jetzt anrufen!" />
     
-    <!-- Fix for "White Screen" on Netlify: Polyfill process.env for libraries that expect it -->
-    <script>
-      window.process = { env: { NODE_ENV: 'production' } };
-    </script>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind -->
+    <!-- Tailwind CSS (für die Live-Vorschau) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -29,11 +24,11 @@
             },
             colors: {
               brand: {
-                dark: '#0F172A', // Slate 900
-                primary: '#1E293B', // Slate 800 (Dark Gray)
-                secondary: '#334155', // Slate 700
-                accent: '#D4AF37', // Metallic Gold (kept for minor accents if needed, but removed from main UI as requested)
-                surface: '#F8FAFC', // Slate 50
+                dark: '#0F172A',
+                primary: '#1E293B',
+                secondary: '#334155',
+                accent: '#D4AF37',
+                surface: '#F8FAFC',
               }
             },
             boxShadow: {
@@ -55,26 +50,13 @@
                 '100%': { transform: 'translateX(-50%)' },
               }
             }
-          }
-        }
+          },
+        },
       }
-    </script>
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@18.2.0",
-        "react/": "https://esm.sh/react@18.2.0/",
-        "react-dom": "https://esm.sh/react-dom@18.2.0",
-        "react-dom/": "https://esm.sh/react-dom@18.2.0/",
-        "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
-        "framer-motion": "https://esm.sh/framer-motion@11.0.8?deps=react@18.2.0,react-dom@18.2.0"
-      }
-    }
     </script>
     <style>
-      html {
-        scroll-padding-top: 100px; /* Ensures anchor links don't hide behind fixed header */
-      }
+      /* Zusätzliche Styles für Glass-Effekte und Scrollbar */
+      html { scroll-padding-top: 100px; }
       .glass-panel {
         background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(16px);
@@ -86,17 +68,25 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
     </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "vite": "https://esm.sh/vite@^7.3.0",
+        "jspdf": "https://esm.sh/jspdf@^3.0.4",
+        "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
+      }
+    }
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-brand-primary selection:text-white">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

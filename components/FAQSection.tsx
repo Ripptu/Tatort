@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, Shield, HelpCircle, FileCheck, Banknote, Sparkles } from 'lucide-react';
+import { ChevronDown, Shield, Banknote, Sparkles } from 'lucide-react';
 
 type AccordionItemProps = {
   question: string;
